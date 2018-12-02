@@ -62,7 +62,7 @@ if(isset($_POST['ip_remove'])){
    mail("you@yourmail.com","Injection attempt on ".$_ENV['HOST'],"The user tried to inject the following string into the remove function: ".$ip_addr);
  }
 }
-$ips = split(',',file_get_contents($whitelist_file));
+$ips = explode(',',file_get_contents($whitelist_file));
 ?>
 <div id="wrapper">
  <form action="?" method="POST">
