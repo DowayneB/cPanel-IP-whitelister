@@ -55,7 +55,7 @@ if [[ -f "/usr/local/cpanel/base/frontend/paper_lantern/ip_whitelist/disabled" ]
   exit
 fi
 #populate sitelist
-echo "" > /etc/ip_whitelist/sitelist
+touch /etc/ip_whitelist/sitelist
 find /home/*/ -maxdepth 1 -iname .ipwhitelist -printf '%h\n' >> /etc/ip_whitelist/sitelist
 sed -i '/^$/d' /etc/ip_whitelist/sitelist
 
@@ -80,4 +80,4 @@ for site in `cat /etc/ip_whitelist/sitelist | cut -d ',' -f1` ; do
    fi
   done
 done
-echo "" > $site/.removedips
+touch $site/.removedips
